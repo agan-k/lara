@@ -11,7 +11,6 @@ export default class Videos extends Component {
       this.state = {
          showModal: false
       }
-      console.log(props)
    }
    handleShowModal = (index) => {
       this.setState({
@@ -42,7 +41,6 @@ export default class Videos extends Component {
                .thumbnail-container img {
                   height: 110%;
                }
-               
             `}</style>
          </div>
       ))
