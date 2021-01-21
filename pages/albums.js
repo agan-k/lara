@@ -17,7 +17,6 @@ export default function Albums() {
                width: '60%', 
                margin: '0 auto', 
                padding: '3rem 1rem', 
-               // backgroundColor: 'yellow', 
                textAlign: 'left'
             }}>
             <BandcampPlayer
