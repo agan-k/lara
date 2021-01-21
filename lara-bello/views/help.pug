@@ -1,0 +1,223 @@
+doctype html(lang='en')
+
+head
+    title Prismic help page
+    link(rel="stylesheet", href="/stylesheets/reset.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="/stylesheets/vendors/help.min.css")
+    link(href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900", rel="stylesheet", type="text/css")
+    link(href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600", rel="stylesheet", type="text/css")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+    script(src="/javascript/vendors/highlight.min.js")
+
+body
+  div#prismic-help
+
+    header
+      nav
+        if isConfigured
+          a(href=repoURL target="_blank")
+            strong Go to #{name}
+        else
+          a(href="#config")
+            strong Configure a repository
+        a.doc(href="https://prismic.io/docs/nodejs/getting-started/prismic-from-scratch-with-nodejs") Documentation
+          img(src="images/open.svg" alt="")
+      .wrapper
+        img(src="images/rocket.svg" alt="")
+        h1 High five, you deserve it!
+        - var stepCount = isConfigured ? 'four' : 'five'
+        p Grab a well deserved cup of coffee, you're !{stepCount} steps away from creating a page with dynamic content.
+      .hero-curve
+      .flip-flap
+        .flipper
+          .guide
+            ul
+              if isConfigured
+                li.done
+                  span 1
+                  |Bootstrap your project
+              else
+                li
+                  a(href="#config")
+                    span 1
+                    |Bootstrap your project
+                    img(src="images/arrow.svg" alt="")
+              li
+                a(href="#custom-type")
+                  span 2
+                  |Setup a "Page" Custom Type
+                  img(src="images/arrow.svg" alt="")
+              li
+                a(href="#first-page")
+                  span 3
+                  |Create your first page
+                  img(src="images/arrow.svg" alt="")
+              li
+                a(href="#query")
+                  span 4
+                  |Create a route and retrieve content
+                  img(src="images/arrow.svg" alt="")
+              li
+                a(href="#done")
+                  span 5
+                  |Fill a template
+                  img(src="images/arrow.svg" alt="")
+          .gif
+
+
+
+    section
+      p This is a help page included in your project, it has a few useful links and example snippets to help you getting started. You can access this any time by pointing your browser to #{host}/help.
+
+      - var stepNumberText = isConfigured ? 'Four' : 'Five'
+      h2 #{stepNumberText} more steps:
+
+      if !isConfigured
+        h3#config
+          span 1
+          |Bootstrap your project
+
+        p If you haven't yet, create a Prismic content repository. A repository is where your website's content will live. Simply #[a(href="https://prismic.io/#create" target="_blank") create one] by choosing a repository name and a plan. We've got a variety of plans including our favorite, Free!
+
+        h4 Add the repository URL to your configuration
+
+        p Replace the repository url in your config file with your-repo-name.prismic.io
+
+        .source-code
+          pre
+            code.js
+              |// In prismic-configuration.js
+              |apiEndpoint: "http://your-repo-name.prismic.io/api/v2",
+
+
+      h3#custom-type
+        span 2
+        |Setup a "Page" Custom Type
+      
+      p
+        span.note Note that if you launched this project using the prismic-cli, then this step has automatically been taken care of. You can skip to the next step.
+
+      p
+        h4 Create a new Custom Type
+        
+        |Go to the repository backend you've just created. Navigate to the "Custom Types" section (icon on the left navbar) and create a new Repeatable Type. For this tutorial let's name it "Page".
+        
+        span.note Before clicking on button "Create new custom type", make sure that the system automatically assigns this an API ID of "page", because we'll use it later for querying the page.
+        
+        |Once the "Page" Custom Type is created, we have to define how we want to model it. Click on "JSON editor" (right sidebar) and paste the following JSON data into the Custom Type JSON editor. When you're done, hit the "Save" button.
+        
+      .source-code
+        pre
+          code.json
+            |{
+            |   "Get Started" : {
+            |     "uid" : {
+            |       "type" : "UID",
+            |       "config" : {
+            |         "placeholder" : "UID"
+            |       }
+            |     },
+            |     "image" : {
+            |       "type" : "Image"
+            |     },
+            |     "title" : {
+            |       "type" : "StructuredText",
+            |       "config" : {
+            |         "single" : "heading1",
+            |         "placeholder" : "Title..."
+            |       }
+            |     },
+            |     "description" : {
+            |       "type" : "StructuredText",
+            |       "config" : {
+            |         "multi" : "paragraph,em,strong,hyperlink",
+            |         "placeholder" : "Description..."
+            |       }
+            |     }
+            |   }
+            |}
+
+
+      h3#first-page
+        span 3
+        |Create your first page
+      p
+        |The "Page" Custom Type you've just created contains a title, a paragraph, an image and a UID (unique identifier). Now it is time to fill in your first page!
+        br
+        br
+        |Go to "Content," hit "New," & fill in the corresponding fields. 
+        span.note Note the value you filled in the UID field, because it will be a part of the page URL. For this example enter the value, <code class="tag">first-page</code>.
+        |When you're done, hit "Save" then "Publish".
+
+
+      h3#query
+        span 4
+        |Create a route and retrieve content
+
+      p
+        |In the <code class="tag">app.js</code> file in your project code, set a <code class="tag">/page/:uid</code> URL to fetch content of your custom type by its UID. The route will then call the <code class="tag">page</code> template and pass it the retrieved content.
+
+      .source-code
+        pre
+          code.js
+            |// add a new route in ./app.js
+            |app.get('/page/:uid', (req, res, next) => {
+            |
+            |   // We store the param uid in a variable
+            |   const uid = req.params.uid;
+            |
+            |   // We are using the function to get a document by its uid field
+            |   req.prismic.api.getByUID('page', uid).then((document) => {
+            |
+            |     // document is a document object, or null if there is no match
+            |     if (document) {
+            |
+            |       // Render the 'page' pug template file (page.pug)
+            |       res.render('page', { document });
+            |
+            |     } else {
+            |       res.status(404).render('404');
+            |     }
+            |   }).catch((error) => {
+            |     next(`error when retriving page ${error.message}`);
+            |   });
+            |});
+
+      p
+        |To discover all the functions you can use to query your documents go to&nbsp;
+        a(href="https://prismic.io/docs/nodejs/query-the-api/how-to-query-the-api" target="_blank") the Prismic documentation
+
+      h3#done
+        span 5
+        |Fill your template
+      p Now all that's left to be done is to insert your content into the template.
+        span.note You can get the content using the <code class="tag">document</code> object we defined above. All the content fields are accessed using their <code class="tag">API-IDs</code>.
+        |Create the template <code class="tag">views/page.pug</code>.
+      .source-code
+        pre
+          code.js
+            |extends ./layout.pug
+            |
+            |//- Create a block
+            |block body
+            |   div
+            |     //- This is how to get an Image into your template
+            |     img(src=document.data.image.url)
+            |
+            |     //- This is how to get a Rich Text into your template
+            |     != PrismicDOM.RichText.asHtml(document.data.title, ctx.linkResolver)
+            |     != PrismicDOM.RichText.asHtml(document.data.description, ctx.linkResolver)
+
+            br
+      p In your browser go to 
+        a(href='/page/first-page') #{host}/page/first-page
+        |  and you're done! You've officially created a page that pulls content from Prismic.
+
+
+        br
+        p
+          |To discover how to get all the different field types, check out&nbsp;
+          a(href="https://prismic.io/docs/nodejs/templating/the-response-object" target="_blank") the Prismic documentation
+          |.
