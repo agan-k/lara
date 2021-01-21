@@ -9,15 +9,16 @@ LANDING PAGE
 
 ![](https://i.imgur.com/2WxAZhM.jpg)
 
-DISCOGRAPHY
+PAGE
 
-![](https://i.imgur.com/u5OJeS2.jpg)
+![](https://i.imgur.com/uQqsC5p.jpg)
 
 
 # MVP
 
-Simple navigation trough several pages (about, music, videos, store, contact) with information and ability to download files. Integration with PayPal in the store section.
+Access to merchandise and music downloads. Photo/Video galleries and calendar listings. Access to the content via headless CMS integration.
 
-# Post MVP
+# Stack
 
- Music player, CMS for performance entries and updates. Streaming.
+CSS, ReactJS, NextJS, Prismic CMS API.
+
