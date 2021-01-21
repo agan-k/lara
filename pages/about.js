@@ -20,8 +20,8 @@ export default function About(props) {
    return (
       <Layout>   
         <Head>
-         <title>Lara Bello</title>
-         <link rel="icon" href="/favicon.ico" />
+            <title>Lara Bello</title>
+            <link rel="icon" href="/favicon.ico" />
          </Head> 
          <div style={{
             backgroundColor: '#2C2312', height: '190px', overflow: 'hidden',
