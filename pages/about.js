@@ -1,8 +1,8 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
-// import { client } from "../prismic-configuration"
-// import Prismic from "prismic-javascript";
-// import { RichText } from "prismic-reactjs";
+import { client } from "../prismic-configuration"
+import Prismic from "prismic-javascript";
+import { RichText } from "prismic-reactjs";
 
 
 export default function About() {
@@ -22,7 +22,7 @@ export default function About() {
          <h3 className='quote source'> – Lila Downs</h3>
          <div className='bio' style={{width: '60%', margin: '0 auto'}}>
             <p style={{textAlign: 'left'}}>
-               Born in Granada, Spain and now based in New York, singer/song-writer, Lara Bello conveys the music of 
+               {/* Born in Granada, Spain and now based in New York, singer/song-writer, Lara Bello conveys the music of 
                her hometown: Flamenco, Arabic melodies and Mediterranean roots masterfully fused with African and Latin 
                American rhythms. Her magical voice expressively touches your heart whilst her poetic lyrics take you on 
                a beautiful journey.
@@ -80,22 +80,22 @@ export default function About() {
                <br/>
                Licenciada en Psicología por la Universidad de Granada, forma parte de proyectos sociales donde se trabaja 
                a través del arte. Actualmente participa en the Lullaby Project, una actividad del área de Impacto Social 
-               del Carnegie Hall en Nueva York.
+               del Carnegie Hall en Nueva York. */}
             </p>
          </div>
      </Layout>
   )
 }
-// export async function getStaticProps() {
-//    const calendar = await client.getSingle("calendar")
-//    const bios = await client.query(
-//      Prismic.Predicates.at("document.type", "about"),
-//      { orderings: "[my.about.date desc]" }
-//    )
-//    return {
-//      props: {
+export async function getStaticProps() {
+   const calendar = await client.getSingle("calendar")
+   const bios = await client.query(
+     Prismic.Predicates.at("document.type", "about"),
+     { orderings: "[my.about.date desc]" }
+   )
+   return {
+     props: {
    
-//        bios,
-//      },
-//    }
-//  }
+       bios,
+     },
+   }
+ }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "next": "10.0.5",
+    "prismic-javascript": "^3.0.2",
     "prismic-reactjs": "^1.3.3",
     "react": "17.0.1",
     "react-bandcamp": "^1.1.5",
