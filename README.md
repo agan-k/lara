@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Description
+# Music Artist Profile
 
-## Getting Started
+This artist profile web app is going to feature the work of and information about jazz drummer and composer [Rajiv Jayaweera](https://rajivjayaweera.com). Users will be able to learn more information, listen to the music, purchase/download music files and sheet music, download relevant information for press and booking.
 
-First, run the development server:
+# Mockups
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+LANDING PAGE
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![](https://i.imgur.com/qtEdpQt.jpg)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+DISCOGRAPHY
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![](https://i.imgur.com/u5OJeS2.jpg)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# MVP
 
-To learn more about Next.js, take a look at the following resources:
+Simple navigation trough several pages (about, music, videos, store, contact) with information and ability to download files. Integration with PayPal in the store section.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Post MVP
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ Music player, CMS for performance entries and updates. Streaming.
