@@ -43,7 +43,8 @@ console.log(props)
          <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         <h2 style={{fontFamily: 'courier'}}>{RichText.asText(props.lyrics.data.heading)}</h2>
+         <h2 style={{ fontFamily: 'courier' }}>{RichText.asText(props.lyrics.data.heading)}</h2>
+         <p>continuous deploy test</p>
 
          {songs.map(item =>
             <div style={{ textAlign: 'left', width: '20%', margin: '2rem auto', ackgroundColor: 'yellow' }}>
