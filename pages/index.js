@@ -8,7 +8,9 @@ export default function Home() {
      <Layout>    
          <Head>
          <title>Lara Bello</title>
-         <link rel="icon" href="/favicon.ico" />
+            <link rel="icon"
+               // href="/favicon.ico"
+            />
          </Head>
          <div style={{backgroundColor: '#141000', paddingBottom: '.1rem'}}>
             <img src='/images/hero-home.jpg' style={{width: '70%', display: 'block', margin: '0 auto'}}></img>
