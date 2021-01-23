@@ -15,11 +15,11 @@ CSS, ReactJS, NextJS, Prismic CMS API.
 
 LANDING PAGE
 
-![](readme_assets/lara_desktop1)
+![](/readme_assets/lara_desktop1)
 
 PAGE
 
-![](readme_assets/lara_desktop2)
+![](/readme_assets/lara_desktop2)
 
 
 
