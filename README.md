@@ -13,14 +13,8 @@ CSS, ReactJS, NextJS, Prismic CMS API.
 
 # Mockups
 
-LANDING PAGE
 
-![](readme_assets/lara_desktop1.jpg)
-
-PAGE
-
-![](readme_assets/lara_desktop2.jpg)
-
+![](readme_assets/mockup.jpg)
 
 
 
