@@ -42,7 +42,7 @@ export default function Contact() {
                <div className='contact-card'>
                   <h2>SAY HI &#128578;</h2>
                   <p>
-                     lara@larabello.com
+                     larabellomusica@gmail.com
                   </p>
                </div>
                <style jsx>{`
