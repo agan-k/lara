@@ -9,10 +9,12 @@ Access to merchandise and music downloads. Photo/Video galleries and calendar li
 
 # Stack
 
-CSS, ReactJS, NextJS, Prismic CMS API.
+CSS, JavaScript ReactJS, NextJS, Prismic CMS API.
 
 # Mockups
 
+
+![](readme_assets/mockup.jpg)
 
 ![](readme_assets/mockup.jpg)
 
