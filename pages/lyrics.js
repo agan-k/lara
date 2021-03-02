@@ -10,7 +10,10 @@ export default function Lyrics(props) {
 console.log(props)   
    const songs = props.songs.results.map(item =>
       item.data.song_body.map(item =>
-         item.type == 'heading5' ? 
+         (item.type == 'image') ? 
+            <img src={item.url} style={{width: '100%'}}/>
+            :
+         (item.type == 'heading5') ? 
             <h5>{item.text}</h5>
             :
             (item.type == 'paragraph') ?
@@ -23,7 +26,10 @@ console.log(props)
                      ) : null   
                }>
                   {item.text}
-                  <style jsx>{`
+                     <style jsx>{`
+                     // img {
+                     //    width: 3rem;
+                     // }
                      p {
                         font-family: courier;
                         font-size: .8rem;
